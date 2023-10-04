@@ -1,0 +1,48 @@
+
+
+<h1 class="d-flex justify-content-center mt-0">NEWS LETTER FORM</h1>
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+<!--NAME-->
+  <div class="mb-3 row">
+    <label class="col-sm-2 col-form-label">Name</label>
+    <div class="col-sm-10">
+      
+      <input formControlName="name" type="text" class="form-control">
+      
+    </div>
+  </div>
+
+<!--LAST NAME-->
+<div class="mb-3 row">
+  <label class="col-sm-2 col-form-label">Last Name</label>
+  <div class="col-sm-10">
+    
+    <input formControlName="lastname" type="text" class="form-control">
+    
+  </div>
+</div>
+
+<!--EMAIL-->
+  <div class="mb-3 row">
+    <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+    <div class="col-sm-10">
+      
+      <input formControlName="email" type="text" class="form-control"
+       [ngClass]="{'is-invalid': emailControl.invalid && emailControl.touched }" value="email@example.com">
+       <div class="invalid-feedback">
+        <ng-container *ngIf="emailControl.errors?.['required']">Este campo es obligatorio</ng-container>
+        <ng-container *ngIf="emailControl.errors?.['email']">Ingrese un correo válido por favor</ng-container>
+
+      </div>
+    </div>
+  </div>
+
+  <!--PASSWORD-->
+  <div class="mb-3 row">
+    <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+    <div class="col-sm-10">
+      <input formControlName="password" type="password" class="form-control" id="inputPassword">
+    </div>
+  </div>
+    <button class="btn btn-primary bg-dark justify-content-center" type="submit">enviar</button>
+</form>
